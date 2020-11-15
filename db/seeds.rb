@@ -49,6 +49,8 @@ end
 puts "9 portfolio items created"
 
 3.times do |technology|
+	#Con esto no es necesario añadir como segundo parámetro el portfolio_id, sino que directamente le decimos
+	#que queremos asociar todas las tecnologias que creemos con el último portfolio creado.
   Portfolio.last.technologies.create!(
     name: "Technology #{technology}"
   )
