@@ -1,0 +1,4 @@
+Lo que concerns es en esencia es que cuando tienes algun tipo de funcionalidad que no pertenece del todo
+al modelo o que probablemente sea compartida por un par de modelos, entonces es cuando hay que usarlo
+
+Todo lo que incluyamos en este archivo debe estar relacionado con los datos

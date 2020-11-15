@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_085158) do
+ActiveRecord::Schema.define(version: 2020_11_15_091119) do
 
   create_table "blogs", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 2020_11_14_085158) do
     t.string "subtitle"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "title"
+    t.integer "percent_utilized"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "badge"
   end
 
   create_table "topics", force: :cascade do |t|
