@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users  #crea toda las rutas de devise
   resources :skills
 	#para poder hacer nested routes es necesario que se encuentren en las carpetas correspondientes, en este caso
 	#dashboard debe encontrarse dentro de una carpeta "admin", tanto el controlador como las vistas
