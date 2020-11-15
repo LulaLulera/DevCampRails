@@ -4,7 +4,7 @@
 	<p><%= portfolio.title%><p>
 	<p><%= portfolio.subtitle%><p>
 	<%= image_tag portfolio.thumb_image unless portfolio.thumb_image.blank?%>
-	<td><%= link_to 'Show', portfolio %></td>
+	<td><%= link_to 'Show', portfolio_show_path(portfolio) %></td>
 	<td><%= link_to 'Edit', edit_portfolio_path(portfolio) %></td>
 	<td><%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
