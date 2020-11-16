@@ -25,11 +25,37 @@ class PortfoliosController < ApplicationController
       end
   end
 
-  private
+  def edit
+  end
 
-    # Only allow a list of trusted parameters through.
+  def update
+    respond_to do |format|
+      if @portfolio_item.update(portfolio_params)
+        format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
+  def show
+  end
+
+  def destroy
+    @portfolio_item.destroy
+    respond_to do |format|
+      format.html { redirect_to portfolios_url, notice: 'Portfolio was successfully destroyed.' }
+    end
+  end
+
+  private
+    # Only allow a list of trusted parameters through. White list
     def portfolio_params
-      params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attribute: [:name])
+      params.require(:portfolio).permit(:title, 
+                                        :subtitle, 
+                                        :body, 
+                                        technologies_attribute: [:name]
+                                        )
     end
 
     def set_portfolio_item
