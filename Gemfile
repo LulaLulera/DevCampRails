@@ -49,3 +49,6 @@ gem 'webpacker', '~> 4.0'
 
 #para poder poner palabras en vez de ids, por ejemplo en vez de post/5 post/que-soy
 gem 'friendly_id', '~> 5.4.0'
+
+#autenticación
+gem 'devise', '~> 4.7', '>= 4.7.3'
