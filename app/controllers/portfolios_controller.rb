@@ -49,10 +49,13 @@ class PortfoliosController < ApplicationController
   end
 
   private
-
-    # Only allow a list of trusted parameters through.
+    # Only allow a list of trusted parameters through. White list
     def portfolio_params
-      params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attribute: [:name])
+      params.require(:portfolio).permit(:title, 
+                                        :subtitle, 
+                                        :body, 
+                                        technologies_attribute: [:name]
+                                        )
     end
 
     def set_portfolio_item

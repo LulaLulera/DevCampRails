@@ -52,3 +52,7 @@ gem 'friendly_id', '~> 5.4.0'
 
 #autenticación
 gem 'devise', '~> 4.7', '>= 4.7.3'
+
+#Un OpenStruct es una estructura de datos, similar a un Hash,
+#que permite la definición de atributos arbitrarios con sus valores acompañantes. Esto se logra usando la metaprogramación de Ruby para definir métodos en la propia clase.
+gem 'ostruct', '~> 0.1.0'

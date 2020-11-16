@@ -75,8 +75,9 @@ class BlogsController < ApplicationController
       #con el friendly lo que hacermos es sobreescribir el comportamiento para que busque por el friendly id en vez de por el id
     end
 
-    # Only allow a list of trusted parameters through.
+    # Only allow a list of trusted parameters through. White list
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, 
+                                   :body)
     end
 end
