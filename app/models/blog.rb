@@ -1,5 +1,5 @@
 class Blog < ApplicationRecord
-	belongs_to :topic #tiene una relación con topics
+	belongs_to :topic, optional: true #tiene una relación con topics
 
 	enum status: {draft: 0, published: 1}
 	#Blog.first.published! y automáticamente nos cambia el estado a published
