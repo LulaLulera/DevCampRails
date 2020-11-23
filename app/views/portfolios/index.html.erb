@@ -1,12 +1,8 @@
 <h1>PORTFOLIO ITEMS</h1>
 <%= link_to 'New Portfolio', new_portfolio_path %>
-<% @portfolio_items.each do |portfolio| %>
-	<p><%= portfolio.title%><p>
-	<p><%= portfolio.subtitle%><p>
-	<%= image_tag portfolio.thumb_image unless portfolio.thumb_image.blank?%>
-	<td><%= link_to 'Show', portfolio_show_path(portfolio) %></td>
-	<td><%= link_to 'Edit', edit_portfolio_path(portfolio) %></td>
-	<td><%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<% end %>
+
+<%= render partial: 'portfolio_item', collection: @portfolio_items %> 
+<!--Esta es la otra manera que hay que poner los render para que no haya errores, porque no se llama igual que por ejemplo pasa en blog-->
+
 
 
