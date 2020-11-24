@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 	#dashboard debe encontrarse dentro de una carpeta "admin", tanto el controlador como las vistas
   namespace :admin do
   	get 'dashboard/main'
-	get 'dashboard/user'
-	get 'dashboard/blog'
+  	get 'dashboard/user'
+  	get 'dashboard/blog'
   end
   
 

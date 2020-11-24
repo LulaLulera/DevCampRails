@@ -1,0 +1,53 @@
+DEBUGGING
+
+---Puts debugging---
+Para hacer debug, en el puts podemos poner puts "=" * 500 y esto dibuja 500 simbolos, no hace falta escribirlos y aparecerá en la consola la información
+
+	Ejemplo:
+	puts "=" * 500
+	puts @blogs.inspect
+	puts "=" * 500
+
+
+---Byebug---
+Es una gema que se instala por defecto. Podemos verla en el gemfile.
+Es parecido al uso de puts, pero pone puntos de ruptura
+
+	Ejemplo:
+	def index
+	    @blogs = Blog.all
+	    byebug
+	    @page_title = "My Portfolio blog"
+	end
+
+Esto hace que la operación se pare en ese punto y nos da en la terminal una serie de información, y podemos escribir en la terminal, por ejemplo
+si ponemos @blogs, nos devuelve todos los blogs que hay
+
+Si ponemos session, nos devuelve todos los datos de la sesión
+
+Si ponemos params, nos devuelve todos los parámetros.
+
+Para salir escribimos "countinue" 
+
+
+---Pry Byebug---
+Lo primero que hay que hacer es instalar la gema de esta manera (en el gemfile), justo debajo de byebug. Aquí toda la doc: https://github.com/deivid-rodriguez/pry-byebug
+
+	group :development, :test do
+	  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+	  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+	  gem 'pry-byebug'
+	end
+
+Por ejemplo, nos da una nil class en una vista, podemos hacer lo siguiente, en la vista "show" de portfolio
+
+<% binding.pry %>
+
+Y refrescamos.
+En la consola ya podemos debugguear, ponemos @portfolio_item, y nos dará nil en caso de que esté vacio o el objeto en caso de que no lo esté.
+params, para ver los parametros
+
+Si por ejemplo queremos debuguear en el controlador, pondríamos binding.pry ene l lugar que queramos, el funcionamiento es el mismo que con byebug, pero
+el formato con el que nos da la información en la consola es mucho más descriptivo y mejor.
+
+Si tenemos varios puntos de ruptura, para continuar al siguiente ponemos "next", esto nos permite ver la diferencia de datos paso a paso.
