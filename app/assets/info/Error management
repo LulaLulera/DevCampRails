@@ -1,0 +1,43 @@
+ERROR MANAGEMENT
+
+	def divide (num1, num2)
+		begin
+			num1 / num2
+		rescue => e
+			puts "Error occurred: #{e}"
+		end
+	end
+
+Con el begin rescue, lo que hacemos es que si hay un error en la transacción no "pete" el programa, es deecir, controlamos el error, en este caso con un mensaje en la consola
+
+Si lo ponemos de esta manera, no nos dará ningun mensaje de error, pero tampoco hará la transacción si hay un error. Esto NUNCA se debe hacer porque la aplicación no mostrará ningún error aunque si los haya.
+
+	def divide (num1, num2)
+		begin
+			num1 / num2
+		rescue 
+		end
+	end
+
+Este tipo de bloques se suele utilizar con cosas más complejas, por ejemplo si tenemos llamadas a terceros que puedan fallar, y se utilizan mensajes flash para mostrar al usuario:
+
+	def divide (num1, num2)
+		begin
+			num1 / num2
+		rescue  => e
+			flash[:error] = "Error during the transaction: #{e}"
+		end
+	end
+
+Aún así esta no es la mejor manera de tratar los errores. Podemos definir el tipo de error que queremos que recoja, para que en caso de haber otro tipo de error, no lo tenga en cuenta por ejemplo:
+*https://ruby-doc.org/core-2.5.1/Exception.html
+
+	def divide (num1, num2)
+		begin
+			num1 / num2
+			dfkfhlsdfk
+		rescue ZeroDivisionError => e
+			flash[:error] = "Error during the transaction: #{e}"
+		end
+	end
+En este caso, si hacemos divide 5, 0, nos dará un error por dividir entre 0, pero realmente el error esta en la linea dfkfhlsdfk. Al poner rescue ZeroDivisionError => e el error nos dará en primer lugar el fallo con la linea errónea, y no por el 0, que en este caso no es el problema principal.

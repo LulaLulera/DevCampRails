@@ -51,3 +51,4 @@ Si por ejemplo queremos debuguear en el controlador, pondríamos binding.pry ene
 el formato con el que nos da la información en la consola es mucho más descriptivo y mejor.
 
 Si tenemos varios puntos de ruptura, para continuar al siguiente ponemos "next", esto nos permite ver la diferencia de datos paso a paso.
+
