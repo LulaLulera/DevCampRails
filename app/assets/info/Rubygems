@@ -1,0 +1,50 @@
+Crear una gema de cero. En este ejemplo vamos a crear una gema con el copyright.
+
+La forma de hacerlo a través de código, que luego vamos a extraer en una gema, sería la siguiente:
+
+En application_controller creamos un modulo, dentro una clase, y dentro un método:
+
+	module DevCampViewTool
+		class Rendered
+			def self.copyright name, msg
+				"&copy; #{Time.now.year}  |  <b>#{msg}".html_safe
+			end
+		end
+	end
+
+Añadimos un método dentro del controlador y con un before_Action llamamos al método.
+
+before_action :set_copyright
+
+	def set_copyright
+		@copyright= DevCampViewTool::Rendered.copyright 'Laura Blanco', 'All rights reserved'
+	end
+
+Para hacerlo visible, en la vista application.html.erb ponemos <%= @copyright %>
+
+Crear la gema:
+1. Hay que salir fuera del directorio cd .. Y crear un nuevo directorio "creating-a-ruby-gem"
+2. Entramos en el nuevo directorio
+3. bundle gem devcamp_view_tool (comprobar que no hay ninguna gema con ese nombre en rubygems.org)
+4. Abrimos con el editor la carpeta en la que hemos creado la gema y entramos en devcamp_view_tool.gemspec
+5. Hay ciertos puntos que pone TODO, son cosas que hay que hacer proque si no la gema no compilará y dará un error
+  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
+  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+
+
+Lo cambiamos por:
+  spec.summary       = %q{Various view specific methods for applications I use}
+  spec.description   = %q{Provides generated HTML data from Rails applications}
+  spec.homepage      = "https://devcamp.com"
+6. En lib/devcamp_view_tool.rb Añadimos un nuevo requier con la calse que creamos "rendered" de esta manera: require "devcamp_view_tool/rendered"
+7. Añadimos en el mismo directorio lib/devcamp_view_tool un nuevo file rendered.rb y dentro añadimos el código que tençiamos en el módulo
+	module DevCampViewTool
+		class Rendered
+			def self.copyright name, msg
+				"&copy; #{Time.now.year}  |  <b>#{msg}".html_safe
+			end
+		end
+	end
+8. Crear un repositorio y añadir la gema en él. Al añadirlo ahi tenemos todas las instrucciones para instalar la gema
+9. Publicar la gema en rubygems
