@@ -5,13 +5,13 @@ module ApplicationHelper
 	# Si la mayoría del código es Ruby, haremos un helper, si es HTML haremos una vista parcial.
 	# Dentro de cada método podemos incluir códgio HTML, y en la vista se pone el nombre del método 
 
-	def login_helper
+	def login_helper style
 		# en la vista <%= login_helper %>
 		unless current_user.is_a?(GuestUser)
-	      link_to "Logout", destroy_user_session_path, method: :delete
+	      link_to "Logout", destroy_user_session_path, method: :delete, class: style
 	    else
-	      (link_to "Login", new_user_session_path) + "<br>".html_safe +
-	      (link_to "Sign In", new_user_registration_path)
+	      (link_to "Login", new_user_session_path, class: style) + " ".html_safe +
+	      (link_to "Sign In", new_user_registration_path, class: style)
 	    end
 	end
 

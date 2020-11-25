@@ -42,7 +42,7 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 55em;
 }
 
 
@@ -99,9 +99,6 @@ body {
   padding: .75rem 1.25rem;
   font-weight: 700;
 }
-.inner{
-  text-align: center;
-}
 
 
 /*
@@ -111,3 +108,16 @@ body {
   color: rgba(255, 255, 255, .5);
 }
 
+
+/*
+ * Custom styles
+ */
+
+.card-body{
+  color: black;
+  text-align: left;
+}
+
+.auth-links a{
+  color: black;
+}
