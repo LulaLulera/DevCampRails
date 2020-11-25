@@ -8,10 +8,10 @@ module ApplicationHelper
 	def login_helper style
 		# en la vista <%= login_helper %>
 		unless current_user.is_a?(GuestUser)
-	      link_to "Logout", destroy_user_session_path, method: :delete, class: style
+	      link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: style
 	    else
-	      (link_to "Login", new_user_session_path, class: style) + " ".html_safe +
-	      (link_to "Sign In", new_user_registration_path, class: style)
+	      (link_to "Iniciar Sesión", new_user_session_path, class: style) + " ".html_safe +
+	      (link_to "Registro", new_user_registration_path, class: style)
 	    end
 	end
 
