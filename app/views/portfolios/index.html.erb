@@ -1,5 +1,5 @@
 <h1>PORTFOLIO ITEMS</h1>
-<%= link_to 'New Portfolio', new_portfolio_path %>
+<%= link_to 'New Portfolio', new_portfolio_path if logged_in?(:site_admin)%>
 
 <%= render partial: 'portfolio_item', collection: @portfolio_items %> 
 <!--Esta es la otra manera que hay que poner los render para que no haya errores, porque no se llama igual que por ejemplo pasa en blog-->

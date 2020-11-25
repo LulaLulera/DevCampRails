@@ -9,11 +9,16 @@ module CurrentUserConcern
 	end
 
 	def guest_user
-		OpenStruct.new(complete_name: "Guest User", 
-					   first_name: "Guest", 
-					   last_name: "User", 
-					   email: "guest@guest.es"
-					   )
+		# Creamos un usuario real para un usuario invitado, para evitar problemas con Petergate. 
+		# Para ello creamos un nuevo modelo guest_user, no hace falta una tabla, pero va a heredar todo de la clase user
+		# En este método lo que hacemos es crear un nuevo guest user
+		guest = GuestUser.new
+		guest.complete_name = "Guest User"
+		guest.first_name = "Guest"
+		guest.last_name = "User"
+		guest.email = "guest@guest.es"
+
+		guest #ESto es el return
 	end
 
 end
