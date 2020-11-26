@@ -1,9 +1,18 @@
-<tr>
-    <td><%= blog.title.upcase %></td>
-    <td>Published <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</td>
-    <td><%= blog.body %></td>
-    <td><%= link_to blog.status, toggle_status_blog_path(blog) %></td>
-    <td><%= link_to 'Show', blog %></td>
-    <td><%= link_to 'Edit', edit_blog_path(blog) if logged_in?(:site_admin) %></td>
-    <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %></td>
-</tr>
+<div class="blog-post blog-body">
+  <h2 class="blog-post-title"><%= link_to blog.title, blog %></h2>
+  <p class="blog-post-meta">Publicado  hace <%= distance_of_time_in_words(blog.created_at, Time.now) %></p>
+
+  <% if logged_in?(:site_admin) %>
+    <p class="blog-post-meta">
+      <%= link_to blog.status, toggle_status_blog_path(blog) %> / <%= link_to 'Editar', edit_blog_path(blog)%> / <%= link_to 'Eliminar', blog, method: :delete, data: { confirm: '¿Está seguro?' }%>
+    </p>
+  <% end %>
+
+  <%#= render partial: 'blogs/admin_actions', locals: { blog: blog } %>
+
+  <p>
+    <%= blog.body %> 
+    <%#= truncate(markdown(blog.body), length: 600, escape: false) %>
+    <%#= link_to "Continue reading", blog %>
+  </p>
+</div>
