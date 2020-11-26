@@ -1,16 +1,19 @@
 <div class="col-sm-8 blog-main">
-	<p id="notice"><%= notice %></p>
 
-	<p>
-	  <strong>Title:</strong>
-	  <%= @blog.title %>
-	</p>
+	<h2><%= @blog.title %></h2>
+	<%= link_to 'Editar Blog', edit_blog_path(@blog) %> 
 
-	<p>
-	  <strong>Body:</strong>
-	  <%= @blog.body %>
-	</p>
+	<div class="blog-body">
+	    <%#= markdown @blog.body %>
+	    <%= @blog.body %>
+	</div>
 
-	<%= link_to 'Edit', edit_blog_path(@blog) %> |
-	<%= link_to 'Back', blogs_path %>
+	
+
+	<%#= render 'blog_breadcrumb' %>
+  	<%#= render 'comments/comment_form' %>
+
+  	<!--<div id="comments" data-blog-id="<%= @blog.id %>">
+	    <%#= render @blog.comments %>
+	</div>-->
 </div>
