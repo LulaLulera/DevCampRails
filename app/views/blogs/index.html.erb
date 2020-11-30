@@ -1,3 +1,10 @@
 <div class="col-sm-8 blog-main">
-  <%= render @blogs %>
+	<%= paginate @blogs %>
+	 <%= render @blogs %>
+
+	  <!--<nav class="blog-pagination">
+	  	<a class="btn btn-outline-primary" href="#">Más Antiguo</a>
+	  	<a class="btn btn-outline-primary disabled" href="#">Más Nuevo</a>
+	  </nav>-->
+	 <%= paginate @blogs %>
 </div>
