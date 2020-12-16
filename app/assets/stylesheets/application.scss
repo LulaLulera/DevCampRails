@@ -113,13 +113,17 @@ body {
  * Custom styles
  */
 
-.card-body{
+.card-block{
   color: black;
   text-align: left;
 }
 
 .auth-links a{
   color: black;
+}
+
+.register-text {
+  text-align: right;
 }
 
 .login > .card{
@@ -130,4 +134,9 @@ body {
 
 .form-group{
   margin: 5px;
+}
+
+.app-nav span {
+  margin-left: 15px;
+  margin-right: 15px;
 }
