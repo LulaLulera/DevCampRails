@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
 	before_action :set_copyright
 
 	def set_copyright
-		@copyright= DevCampViewTool::Rendered.copyright 'Laura Blanco', 'All rights reserved'
+		@copyright= DevCampViewTool::Rendered.copyright 'Laura Blanco', 'Todos los derechos reservados'
 	end
 end 
 
 module DevCampViewTool
 	class Rendered
 		def self.copyright name, msg
-			"&copy; #{Time.now.year}  |  <b>#{msg}".html_safe
+			"&copy; #{Time.now.year} |  <b>#{name}  |  <b>#{msg}".html_safe
 		end
 	end
 end

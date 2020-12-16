@@ -18,28 +18,28 @@ module ApplicationHelper
 
 	def source_helper(layout_name)
 		if session[:source]
-			greeting = "Thanks for visiting me from #{session[:source]} and you are on the #{layout_name}"
+			greeting = "Gracias por visitarme desde #{session[:source]} y tú estas en #{layout_name}"
 	      	content_tag(:p, greeting, class: "source-greating")
 	    end
 	end
 
 	def copyright_generator
-	  DevCampViewTool::Rendered.copyright 'Jordan Hudgens', 'All rights reserved'
+	  DevCampViewTool::Rendered.copyright 'Laura Isabel Blanco Calvo', 'Todos los derechos reservados'
 	end
 
 	def nav_items
     [
       {
         url: root_path,
-        title: 'Home'
+        title: 'Inicio'
       },
       {
         url: about_me_path,
-        title: 'About Me'
+        title: 'Sobre mí'
       },
       {
         url: contact_path,
-        title: 'Contact'
+        title: 'Contacto'
       },
       {
         url: blogs_path,
