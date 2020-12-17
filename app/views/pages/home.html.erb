@@ -1,9 +1,15 @@
 <main role="main" class="inner cover text-center">
 	<h1 class="cover-heading">Bienvenido</h1>
-	<p class="lead">Software developer Portfolio</p>
+	<p class="lead">En esta aplicación encontrarás algunos de los proyectos que he desarrollado, en diferentes tecnologías e información sobre mí y mi trayectorio profesional</p>
 	<p class="lead">
-	  <!--<a href="<%= about_me_path %>" class="btn btn-lg btn-secondary">Learn more</a>-->
-	  <%= link_to "Sobre mí", about_me_path, class: "btn btn-lg btn-secondary" %>
+	  <%#= link_to "Sobre mí", about_me_path, class: "btn btn-lg btn-secondary btn-sm btn-inicio" %>
+	  <a href=<%= about_me_path %> class="cta">
+		  <span>Sobre mí</span>
+		  <svg width="13px" height="10px" viewBox="0 0 13 10">
+		    <path d="M1,5 L11,5"></path>
+		    <polyline points="8 1 12 5 8 9"></polyline>
+		  </svg>
+		</a>
 	</p>
 </main>
 

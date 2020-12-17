@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_141911) do
+ActiveRecord::Schema.define(version: 2020_12_17_151051) do
 
   create_table "blogs", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_141911) do
     t.text "body"
     t.text "main_image"
     t.text "thumb_image"
+    t.integer "position"
   end
 
   create_table "posts", force: :cascade do |t|

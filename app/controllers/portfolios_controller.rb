@@ -5,14 +5,15 @@ class PortfoliosController < ApplicationController
 
   
   def index
-    @portfolio_items = Portfolio.all
+    # by_position, es un método de ordenación, un scope, para poder hacer drag and drop desde la vista y ordenar como queramos
+    @portfolio_items = Portfolio.by_position
   end
 
   def new
     @portfolio_item = Portfolio.new
 
     # esto instancia 3 versiones de este portfolio_item, y crea 3 tipos de technologies, es decir, en el form
-    #habrá 3 elementos para añadir tecnologías
+    # habrá 3 elementos para añadir tecnologías
     3.times { @portfolio_item.technologies.build } 
   end
 

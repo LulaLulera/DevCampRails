@@ -2,11 +2,11 @@ class Portfolio < ApplicationRecord
 	has_many :technologies
 
 	################################################
-	#esto nos permite acceder a los atributos de technologies desde portfolio.
-	#En este caso le estamos diciendo que acepte este atributo si el nombre está en blanco
-	#De esta manera cuando creemos un portfolio y no incluyamos ninguna tecnologia, no se creará ningún registro,
+	# esto nos permite acceder a los atributos de technologies desde portfolio.
+	# En este caso le estamos diciendo que acepte este atributo si el nombre está en blanco
+	# De esta manera cuando creemos un portfolio y no incluyamos ninguna tecnologia, no se creará ningún registro,
 	# pero si completamos el apartado, se creará un nuevo registro "Technology"
-	#para comprobar que esto funciona, en la consola: 
+	# para comprobar que esto funciona, en la consola: 
 	# Portfolio.create!(title: "Web app", subtitle: "any", body: "aksjdhaks", 
 	# technologies_attributes: [{name: 'Ruby'}, {name: 'Rails'}, {name: 'Angular'}, {name: 'Ionic'}])
 	accepts_nested_attributes_for :technologies,
@@ -23,11 +23,20 @@ class Portfolio < ApplicationRecord
 	after_initialize :set_defaults 
 	################################################
 
+
 	########################scopes########################
 	#un tipo de scope
 	def self.angular
 		where(subtitle: 'Angular')
 	end
+
+
+	def self.by_position
+		order("position ASC")
+	end
+
+
+
 	#segundo tipo de scope
 	scope :ruby_on_rails_portfolio_items, -> {where(subtitle: 'Ruby on rails')}
 	#####################################################
@@ -38,4 +47,5 @@ class Portfolio < ApplicationRecord
 		self.main_image ||= Placeholder.image_generator(height: '600', width: '400')
 		self.thumb_image ||= Placeholder.image_generator(height: '352', width: '200')
 	end
+
 end
