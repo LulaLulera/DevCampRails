@@ -17,13 +17,14 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 //= require jquery3
-//= require jquery-ui
+//require jquery-ui
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
 
 require("html.sortable")
+require("packs/portfolio")
 
-require('lib/followeing');
+/*require('lib/followeing');
 require('trix');
-require('@rails/actiontext');
+require('@rails/actiontext');*/
