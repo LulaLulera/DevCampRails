@@ -1,4 +1,5 @@
 class Portfolio < ApplicationRecord
+	acts_as_list
 	has_many :technologies
 
 	################################################
@@ -22,7 +23,6 @@ class Portfolio < ApplicationRecord
 	#antes de iniciar, es decir antes de new.
 	after_initialize :set_defaults 
 	################################################
-
 
 	########################scopes########################
 	#un tipo de scope

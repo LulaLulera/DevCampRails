@@ -1,6 +1,11 @@
 require("html.sortable")
- 
+
 $(function() {
-	$('.sortable').sortable();
+  $('.sortable').sortable();
 });
-alert("function has run") // optional alert to double check
+
+import sortable from '../html.sortable.js';
+ 
+$( () => {
+  sortable('.sortable');
+})
