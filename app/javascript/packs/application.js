@@ -8,20 +8,14 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-
-
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-
 
 //= require jquery3
 //= require jquery-ui
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree 
-
-tyit
 
 require("html.sortable")
 require("packs/portfolio")
