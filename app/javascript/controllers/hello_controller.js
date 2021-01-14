@@ -8,11 +8,18 @@
 // </div>
 
 import { Controller } from "stimulus"
+import Sortable from "sortablejs"
 
 export default class extends Controller {
   static targets = [ "output" ]
 
   connect() {
-    this.outputTarget.textContent = 'Hello, Stimulus!'
-  }
+    this.sortable = Sortable.create(this.element,{
+    	onEnd: this.end.bind(this)
+    	})  
+	}
+
+	end(event) {
+		console.log("event");
+	}
 }
